@@ -12,6 +12,7 @@ const isAuth=async(req, res, next)=>{
         console.log(verifiedToken)
         // send the user id into userId using request
         req.userId=verifiedToken.userId;
+        res.json(req.userId)
         next()
     } catch (error) {
         return res.status(500).json({message: `Error found in middleware: ${error}`})
